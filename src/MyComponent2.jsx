@@ -1,12 +1,12 @@
-import React from 'react'
-const MyComponent2 = ({ num, str, bool, obj, arr, fn }) => {
-  const result = fn(obj, bool, num, str, arr)
-  if (result !== false) {
-    obj.age++
-    return <h2>Результат: {String(result)}</h2>
-  } else {
-    return <h2>Результат: Не подходите!</h2>
-  }
+import { useState } from 'react'
+const MyComponent2 = ({ title }) => {
+  const [state, setState] = useState('text')
+  return (
+    <>
+      <h2>{title}</h2>
+      <button onClick={() => setState('')}>КНОПКА: {state}</button>
+    </>
+  )
 }
 
 export default MyComponent2

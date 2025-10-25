@@ -1,12 +1,16 @@
-import React from 'react'
-const MyComponent3 = ({ num, str, bool, obj, arr, fn }) => {
-  const result = fn(obj, bool, num, str, arr)
-  if (result !== false) {
-    obj.age++
-    return <h3>Результат: {String(result)}</h3>
-  } else {
-    return <h3>Результат: Не подходите!</h3>
+import { useState } from 'react'
+const MyComponent3 = ({ title }) => {
+  const [state, setState] = useState('введи текст')
+  const handleChange = (event) => {
+    setState(event.target.value)
   }
+  return (
+    <>
+      <h2>{title}</h2>
+      <input type="text" value={state} onChange={handleChange} />
+      <p>{state}</p>
+    </>
+  )
 }
 
 export default MyComponent3
